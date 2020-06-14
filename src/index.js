@@ -1,11 +1,17 @@
 import React, { Component } from "react";
 import ReactDOM from "react-dom";
-import { date } from "./functions";
+
+import MainWeatherDetails from "./components/MainWeatherDetails";
+import HourlyForecast from "./components/HourlyForecast";
+import TwoDaySummary from "./components/TwoDaySummary";
+import Date from "./components/Date";
+import ErrorMessage from "./components/ErrorMessage";
+
 require("dotenv").config();
 
 let weatherAPI = {
 	base: "http://api.openweathermap.org/data/2.5/",
-	key: "",
+	key: "a1eceb2aba63977ea20ba9526a247970",
 };
 
 class App extends Component {
@@ -17,28 +23,11 @@ class App extends Component {
 	}
 
 	renderWeather = (weather) => {
-		return (
-			<div>
-				<div>{weather.temp}°C</div>
-				<small>{weather.feels_like}°C</small>
-			</div>
-		);
+		return <MainWeatherDetails weather={weather} />;
 	};
 
 	renderForecast = (forecast) => {
-		return (
-			<div>
-				<h1>Hourly</h1>
-				{forecast.hourly.map((hourly, i) => {
-					return (
-						<div key={i}>
-							<h1>{i}</h1>
-							<div>{hourly.weather[0].description}</div>
-						</div>
-					);
-				})}
-			</div>
-		);
+		return <HourlyForecast forecast={forecast} />;
 	};
 
 	handleChange(event) {
@@ -84,53 +73,40 @@ class App extends Component {
 		}
 	}
 
-	componentDidUpdate(prevState) {
-		if (prevState.display !== this.state.display) {
-		}
-	}
-
 	render() {
 		if (this.state.display === false && this.state.errorMessage === "") {
-			return (
-				<div>
-					<div>{date}</div>
-					<input
-						type="text"
-						name="locationInput"
-						placeholder="Search"
-						onChange={(e) => this.handleChange(e)}
-						onKeyPress={(e) => this.handleKeyPress(e)}
-					/>
-				</div>
-			);
+			return <Date />;
 		} else if (this.state.display === false) {
 			return (
 				<div>
-					<div>{date}</div>
+					<Date />
 					<input
 						type="text"
 						name="locationInput"
-						placeholder="Search"
+						placeholder="What city are you in?"
 						onChange={(e) => this.handleChange(e)}
 						onKeyPress={(e) => this.handleKeyPress(e)}
 					/>
-					<small>{this.state.errorMessage}</small>
+					<ErrorMessage message={this.state.errorMessage} />
 				</div>
 			);
 		} else {
 			return (
 				<div>
-					<div>{date}</div>
+					<Date />
 					<input
 						type="text"
 						name="locationInput"
-						placeholder="Search"
+						placeholder="What city are you in?"
 						onChange={(e) => this.handleChange(e)}
 						onKeyPress={(e) => this.handleKeyPress(e)}
 					/>
-					<div>{this.renderWeather(this.state.weather)}</div>
+					<MainWeatherDetails weather={this.state.weather} />
 					{this.state.forecast ? (
-						<div>{this.renderForecast(this.state.forecast)}</div>
+						<div>
+							<TwoDaySummary assessment={this.state.forecast.hourly} />
+							<HourlyForecast forecast={this.state.forecast} />
+						</div>
 					) : (
 						<div></div>
 					)}
@@ -141,5 +117,3 @@ class App extends Component {
 }
 
 ReactDOM.render(<App />, document.getElementById("root"));
-
-// http://api.openweathermap.org/data/2.5/forecast?id=524901&APPID={YOUR API KEY}
