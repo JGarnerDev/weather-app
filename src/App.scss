@@ -1,0 +1,168 @@
+@import './styles/_functions.scss';
+@import './styles/_mixins.scss';
+@import './styles/_variables.scss';
+@import './styles/components/Date';
+@import './styles/components/ErrorMessage';
+@import './styles/components/HourlyForecast';
+@import './styles/components/MainWeatherDetails';
+@import './styles/components/TwoDaySummary';
+@import './styles/components/WeatherIcon';
+//
+// 
+// 
+//  
+html {
+    min-height: 500vh;
+    background-color: $secondaryColor;
+    background: linear-gradient(0deg, $secondaryColor 0%, $primaryColor 100%);
+}
+
+html,
+body,
+#App {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    // 
+    height: auto;
+    width: 100%;
+    // 
+    margin: 0;
+    // 
+    // 
+     ::-webkit-scrollbar {
+        display: none;
+    }
+}
+
+#App {}
+
+#Main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    // 
+    height: auto;
+    width: 100%;
+    margin: 0 20px 0 20px;
+}
+
+#SearchBar {
+    width: 300px;
+    height: 40px;
+    text-align: center;
+    font-size: 30px;
+}
+
+#SearchBar::-webkit-input-placeholder {
+    font-size: 20px;
+}
+
+#SearchBar:focus::-webkit-input-placeholder {
+    color: transparent;
+}
+
+#ErrorMessage {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    // 
+    height: 30px;
+    // 
+    font-weight: 700;
+    color: red;
+}
+
+#Report {
+    @include cardStyle;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    // 
+    margin-top: 40px;
+    // 
+    width: 90%;
+    max-width: 1000px;
+    // 
+    #city-header {
+        @include cardStyle;
+        margin: 20px 0px 0px 0px;
+        height: 40px;
+        width: 90%;
+        text-align: center;
+        background-color: $secondaryColor-lighter;
+    }
+    #additionalInfo {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        // 
+        height: 100%;
+        width: 100%;
+        // 
+    }
+}
+
+.container {
+    @include cardStyle;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 0 0 10px;
+    width: 80%;
+    max-width: 1000px;
+    h1 {
+        margin: 0 20px 0 0;
+    }
+}
+
+.hour-container {
+    @include cardStyle;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    h1 {
+        margin: 0 0 0 0;
+    }
+}
+
+#appHeader {
+    width: 90vw;
+    margin-top: 20px;
+    h1 {
+        text-align: center;
+        margin: 0;
+    }
+}
+
+#SearchBar {
+    background-color: $cardColor;
+    border: 4px solid white;
+    border-radius: 10px;
+}
+
+#SearchBar:focus {
+    background-color: $cardColor;
+    border: 4px solid white;
+    border-radius: 10px;
+    outline: none;
+}
+
+p {
+    margin: 0;
+    padding: 0;
+}
+
+h1 {
+    margin-bottom: 20px;
+}
+
+h2 {
+    margin: 10px;
+}
+
+h3 {
+    margin-right: 20px;
+}

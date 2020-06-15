@@ -2,5 +2,9 @@ import React from "react";
 import { date } from "../functions";
 
 export default function Date() {
-	return <div>{date}</div>;
+	return (
+		<h4 id="Date" className="container">
+			{date}
+		</h4>
+	);
 }

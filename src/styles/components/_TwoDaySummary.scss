@@ -1,0 +1,26 @@
+@import '../variables';
+#TwoDaySummary {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    @include cardStyle;
+    // 
+    text-align: center;
+    .time {
+        flex-grow: 1;
+        max-width: 200px;
+    }
+    .badweather {
+        @include badWeatherStatus;
+        flex-grow: 2;
+    }
+}
+
+.danger {
+    background: $dangerColor !important;
+}
+
+.happy {
+    background: $secondaryColor-lighter !important;
+}

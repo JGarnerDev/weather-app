@@ -1,0 +1,30 @@
+#MainWeatherDetails {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    // 
+    // 
+    @include cardStyle;
+    ul {
+        margin: 5px;
+    }
+    li {
+        margin: 0;
+    }
+    #temperature {
+        font-size: 3em;
+    }
+    #meta {
+        display: flex;
+        flex-wrap: wrap;
+        list-style: none;
+        padding: 0;
+        .metadata {
+            min-width: 50%;
+            flex-grow: 1;
+            text-align: center;
+            margin: 5px 0px 5px 0px;
+        }
+    }
+}
