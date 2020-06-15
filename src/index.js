@@ -14,10 +14,10 @@ require("dotenv").config();
 
 let weatherAPI = {
 	base: "http://api.openweathermap.org/data/2.5/",
-	key: "a1eceb2aba63977ea20ba9526a247970",
+	key: process.env.WEATHER_API_KEY,
 };
 
-let geonamesAccount = "ljyhbcfvlighvfiuhg";
+let geonamesAccount = process.env.GEONAMES_ACCOUNT;
 
 class App extends Component {
 	constructor() {

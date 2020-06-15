@@ -1,5 +1,5 @@
 import React from "react";
-import { hour, convertToTime } from "../functions";
+import { hour, convertToTime } from "./functions";
 
 export default function HourlyForecast(props) {
 	let forecast = props.forecast;

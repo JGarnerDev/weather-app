@@ -1,5 +1,5 @@
 import React from "react";
-import { date } from "../functions";
+import { date } from "./functions";
 
 export default function Date() {
 	return (
