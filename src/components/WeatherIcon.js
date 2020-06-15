@@ -2,7 +2,7 @@ import React from "react";
 
 export default function WeatherIcon(props) {
 	let iconId = props.icon;
-	let src = `http://openweathermap.org/img/wn/${iconId}@2x.png`;
+	let src = `https://openweathermap.org/img/wn/${iconId}@2x.png`;
 
 	let WeatherIconStyle = {
 		backgroundImage: `url(${src})`,

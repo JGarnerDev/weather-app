@@ -37,7 +37,7 @@ class App extends Component {
 
 	cleanCityString = () => {
 		fetch(
-			`http://api.geonames.org/findNearbyJSON?lat=${this.state.coords.lat}&lng=${this.state.coords.lon}&username=${geonamesAccount}`
+			`https://api.geonames.org/findNearbyJSON?lat=${this.state.coords.lat}&lng=${this.state.coords.lon}&username=${geonamesAccount}`
 		)
 			.then((res) => res.json())
 			.then((result) => {
