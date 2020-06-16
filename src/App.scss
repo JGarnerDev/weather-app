@@ -20,6 +20,8 @@ html {
 html,
 body,
 #App {
+    position: sticky;
+    top: 0px;
     display: flex;
     flex-direction: column;
     align-items: center;
