@@ -17,8 +17,6 @@ let weatherAPI = {
 	key: "a1eceb2aba63977ea20ba9526a247970",
 };
 
-let geonamesAccount = "ljyhbcfvlighvfiuhg";
-
 class App extends Component {
 	constructor() {
 		super();
@@ -33,21 +31,6 @@ class App extends Component {
 
 	renderForecast = (forecast) => {
 		return <HourlyForecast forecast={forecast} />;
-	};
-
-	cleanCityString = () => {
-		fetch(
-			`https://api.geonames.org/findNearbyJSON?lat=${this.state.coords.lat}&lng=${this.state.coords.lon}&username=${geonamesAccount}`
-		)
-			.then((res) => res.json())
-			.then((result) => {
-				let cityName =
-					this.state.request.charAt(0).toUpperCase() +
-					this.state.request.slice(1, this.state.request.length).toLowerCase();
-				this.setState({
-					city: cityName + ", " + result.geonames[0].countryCode,
-				});
-			});
 	};
 
 	handleChange(event) {
@@ -82,7 +65,6 @@ class App extends Component {
 							})
 							.then(
 								this.setState({
-									city: this.cleanCityString(),
 									request: this.state.locationInput,
 								})
 							);
@@ -139,7 +121,7 @@ class App extends Component {
 
 					{this.state.forecast ? (
 						<div id="Report">
-							<h1 id="city-header">{this.state.city}</h1>
+							<h1 id="city-header">{this.state.request}</h1>
 							<WeatherIcon
 								id="main-icon"
 								icon={this.state.forecast.hourly[0].weather[0].icon}

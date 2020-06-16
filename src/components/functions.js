@@ -13,7 +13,8 @@ const month = [
 	"October",
 	"November",
 	"December",
-][new Date().getMonth() - 1];
+][new Date().getMonth()];
+
 const day = [
 	"Sunday",
 	"Monday",
@@ -80,6 +81,27 @@ let convertToTime = (relativeTime) => {
 
 	return { daystring: dayStrings[dayIndex], relativeTime };
 };
+
+//  Things get a little more fun (or frustrating) depending on the logic
+//  required to create values that are useful to us. If someone asked you
+//  what day and time is it x hours from now, this function answers it.
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 // Forecast string function
 
