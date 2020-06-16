@@ -13,6 +13,8 @@ import "./App.scss";
 require("dotenv").config();
 
 let weatherAPI = {
+	// Just to clarify - I wouldn't normally have an API key here, but environment variables
+	// weren't working :(
 	base: "http://api.openweathermap.org/data/2.5/",
 	key: "a1eceb2aba63977ea20ba9526a247970",
 };
